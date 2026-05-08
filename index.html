@@ -823,84 +823,420 @@
 
     <script>
         // ========== DATA ==========
-        const cities = [
-            { name: "New York / New Jersey", country: "🇺🇸", stadium: "MetLife Stadium", capacity: "87,157", matches: 8, lat: 40.8136, lng: -74.0745, desc: "Host of the Final. Iconic venue across the river from Manhattan." },
-            { name: "Los Angeles", country: "🇺🇸", stadium: "SoFi Stadium", capacity: "70,240", matches: 8, lat: 33.9534, lng: -118.3390, desc: "$5 billion indoor-outdoor revolutionary venue in Inglewood." },
-            { name: "Dallas", country: "🇺🇸", stadium: "AT&T Stadium", capacity: "92,967", matches: 9, lat: 32.7473, lng: -97.0945, desc: "Architectural masterpiece with retractable dome. Hosts a Semi-Final." },
-            { name: "Miami", country: "🇺🇸", stadium: "Hard Rock Stadium", capacity: "67,518", matches: 7, lat: 25.9580, lng: -80.2389, desc: "Oceanfront hotspot with $350M renovation. Hosts Quarter-Final & 3rd Place." },
-            { name: "Atlanta", country: "🇺🇸", stadium: "Mercedes-Benz Stadium", capacity: "75,000", matches: 8, lat: 33.7554, lng: -84.4008, desc: "Pinwheel retractable roof and 360° LED halo board. Semi-Final host." },
-            { name: "Seattle", country: "🇺🇸", stadium: "Lumen Field", capacity: "69,000", matches: 6, lat: 47.5952, lng: -122.3316, desc: "Pacific Northwest gem with downtown views." },
-            { name: "San Francisco", country: "🇺🇸", stadium: "Levi's Stadium", capacity: "70,909", matches: 6, lat: 37.4030, lng: -121.9698, desc: "Santa Clara venue also hosting 2026 Super Bowl." },
-            { name: "Philadelphia", country: "🇺🇸", stadium: "Lincoln Financial Field", capacity: "69,328", matches: 6, lat: 39.9008, lng: -75.1675, desc: "Historic city, home of passionate sports fans." },
-            { name: "Boston", country: "🇺🇸", stadium: "Gillette Stadium", capacity: "70,000", matches: 7, lat: 42.0909, lng: -71.2643, desc: "Newly renovated with iconic 218-ft lighthouse. Quarter-Final host." },
-            { name: "Houston", country: "🇺🇸", stadium: "NRG Stadium", capacity: "72,220", matches: 7, lat: 29.6847, lng: -95.4107, desc: "Retractable roof in Texas' cosmopolitan hub." },
-            { name: "Kansas City", country: "🇺🇸", stadium: "Arrowhead Stadium", capacity: "76,640", matches: 6, lat: 39.0489, lng: -94.4839, desc: "World's loudest stadium (Guinness Record). Quarter-Final host." },
-            { name: "Vancouver", country: "🇨🇦", stadium: "BC Place", capacity: "54,500", matches: 7, lat: 49.2768, lng: -123.1120, desc: "Retractable roof stadium between ocean and mountains." },
-            { name: "Toronto", country: "🇨🇦", stadium: "BMO Field", capacity: "45,736", matches: 6, lat: 43.6332, lng: -79.4186, desc: "Expanded to 45,736 seats on Lake Ontario shoreline." },
-            { name: "Mexico City", country: "🇲🇽", stadium: "Estadio Azteca", capacity: "87,523", matches: 5, lat: 19.3029, lng: -99.1505, desc: "Iconic stadium hosting its 3rd World Cup. Opening Match venue." },
-            { name: "Guadalajara", country: "🇲🇽", stadium: "Estadio Akron", capacity: "48,071", matches: 4, lat: 20.6818, lng: -103.4625, desc: "Cultural center of Mexico, home of mariachi and tequila." },
-            { name: "Monterrey", country: "🇲🇽", stadium: "Estadio BBVA", capacity: "53,500", matches: 4, lat: 25.6691, lng: -100.2444, desc: "'The Steel Giant' with mountain views." }
-        ];
+const cities = [
+    { name: "New York / New Jersey", country: "🇺🇸", stadium: "MetLife Stadium", capacity: "87,157", matches: 8, lat: 40.8136, lng: -74.0745, desc: "Host of the Final. Iconic venue across the river from Manhattan." },
+    { name: "Los Angeles", country: "🇺🇸", stadium: "SoFi Stadium", capacity: "70,240", matches: 8, lat: 33.9534, lng: -118.3390, desc: "$5 billion indoor-outdoor revolutionary venue in Inglewood." },
+    { name: "Dallas", country: "🇺🇸", stadium: "AT&T Stadium", capacity: "92,967", matches: 9, lat: 32.7473, lng: -97.0945, desc: "Architectural masterpiece with retractable dome. Hosts a Semi-Final." },
+    { name: "Miami", country: "🇺🇸", stadium: "Hard Rock Stadium", capacity: "67,518", matches: 7, lat: 25.9580, lng: -80.2389, desc: "Oceanfront hotspot with $350M renovation. Hosts Quarter-Final & 3rd Place." },
+    { name: "Atlanta", country: "🇺🇸", stadium: "Mercedes-Benz Stadium", capacity: "75,000", matches: 8, lat: 33.7554, lng: -84.4008, desc: "Pinwheel retractable roof and 360° LED halo board. Semi-Final host." },
+    { name: "Seattle", country: "🇺🇸", stadium: "Lumen Field", capacity: "69,000", matches: 6, lat: 47.5952, lng: -122.3316, desc: "Pacific Northwest gem with downtown views." },
+    { name: "San Francisco", country: "🇺🇸", stadium: "Levi's Stadium", capacity: "70,909", matches: 6, lat: 37.4030, lng: -121.9698, desc: "Santa Clara venue also hosting 2026 Super Bowl." },
+    { name: "Philadelphia", country: "🇺🇸", stadium: "Lincoln Financial Field", capacity: "69,328", matches: 6, lat: 39.9008, lng: -75.1675, desc: "Historic city, home of passionate sports fans." },
+    { name: "Boston", country: "🇺🇸", stadium: "Gillette Stadium", capacity: "70,000", matches: 7, lat: 42.0909, lng: -71.2643, desc: "Newly renovated with iconic 218-ft lighthouse. Quarter-Final host." },
+    { name: "Houston", country: "🇺🇸", stadium: "NRG Stadium", capacity: "72,220", matches: 7, lat: 29.6847, lng: -95.4107, desc: "Retractable roof in Texas' cosmopolitan hub." },
+    { name: "Kansas City", country: "🇺🇸", stadium: "Arrowhead Stadium", capacity: "76,640", matches: 6, lat: 39.0489, lng: -94.4839, desc: "World's loudest stadium (Guinness Record). Quarter-Final host." },
+    { name: "Vancouver", country: "🇨🇦", stadium: "BC Place", capacity: "54,500", matches: 7, lat: 49.2768, lng: -123.1120, desc: "Retractable roof stadium between ocean and mountains." },
+    { name: "Toronto", country: "🇨🇦", stadium: "BMO Field", capacity: "45,736", matches: 6, lat: 43.6332, lng: -79.4186, desc: "Expanded to 45,736 seats on Lake Ontario shoreline." },
+    { name: "Mexico City", country: "🇲🇽", stadium: "Estadio Azteca", capacity: "87,523", matches: 5, lat: 19.3029, lng: -99.1505, desc: "Iconic stadium hosting its 3rd World Cup. Opening Match venue." },
+    { name: "Guadalajara", country: "🇲🇽", stadium: "Estadio Akron", capacity: "48,071", matches: 4, lat: 20.6818, lng: -103.4625, desc: "Cultural center of Mexico, home of mariachi and tequila." },
+    { name: "Monterrey", country: "🇲🇽", stadium: "Estadio BBVA", capacity: "53,500", matches: 4, lat: 25.6691, lng: -100.2444, desc: "'The Steel Giant' with mountain views." }
+];
 
-        const allTeams = [
-            "🇲🇽 Mexico", "🇿🇦 South Africa", "🇰🇷 South Korea", "🇨🇿 Czechia",
-            "🇨🇦 Canada", "🇧🇦 Bosnia", "🇶🇦 Qatar", "🇨🇭 Switzerland",
-            "🇧🇷 Brazil", "🇪🇬 Egypt", "🇳🇴 Norway", "🇳🇿 New Zealand",
-            "🇺🇸 USA", "🇵🇾 Paraguay", "🇦🇺 Australia", "🇹🇷 Turkey",
-            "🇦🇷 Argentina", "🇲🇦 Morocco", "🇦🇹 Austria", "🇵🇦 Panama",
-            "🇫🇷 France", "🇸🇳 Senegal", "🇸🇪 Sweden", "🇭🇹 Haiti",
-            "🏴󠁧󠁢󠁥󠁮󠁧󠁿 England", "🇳🇱 Netherlands", "🇺🇦 Ukraine", "🇨🇱 Chile",
-            "🇪🇸 Spain", "🇩🇪 Germany", "🇧🇪 Belgium", "🇩🇰 Denmark",
-            "🇵🇹 Portugal", "🇮🇹 Italy", "🇭🇷 Croatia", "🇬🇷 Greece",
-            "🇯🇵 Japan", "🇮🇷 Iran", "🇸🇦 Saudi Arabia", "🇺🇿 Uzbekistan",
-            "🇨🇴 Colombia", "🇪🇨 Ecuador", "🇵🇪 Peru", "🇻🇪 Venezuela",
-            "🇨🇮 Ivory Coast", "🇳🇬 Nigeria", "🇨🇲 Cameroon", "🇬🇭 Ghana"
-        ];
+const allTeams = [
+    "🇲🇽 Mexico", "🇿🇦 South Africa", "🇰🇷 South Korea", "🇨🇿 Czechia",
+    "🇨🇦 Canada", "🇧🇦 Bosnia", "🇶🇦 Qatar", "🇨🇭 Switzerland",
+    "🇧🇷 Brazil", "🇪🇬 Egypt", "🇳🇴 Norway", "🇳🇿 New Zealand",
+    "🇺🇸 USA", "🇵🇾 Paraguay", "🇦🇺 Australia", "🇹🇷 Turkey",
+    "🇦🇷 Argentina", "🇲🇦 Morocco", "🇦🇹 Austria", "🇵🇦 Panama",
+    "🇫🇷 France", "🇸🇳 Senegal", "🇸🇪 Sweden", "🇭🇹 Haiti",
+    "🏴󠁧󠁢󠁥󠁮󠁧󠁿 England", "🇳🇱 Netherlands", "🇺🇦 Ukraine", "🇨🇱 Chile",
+    "🇪🇸 Spain", "🇩🇪 Germany", "🇧🇪 Belgium", "🇩🇰 Denmark",
+    "🇵🇹 Portugal", "🇮🇹 Italy", "🇭🇷 Croatia", "🇬🇷 Greece",
+    "🇯🇵 Japan", "🇮🇷 Iran", "🇸🇦 Saudi Arabia", "🇺🇿 Uzbekistan",
+    "🇨🇴 Colombia", "🇪🇨 Ecuador", "🇵🇪 Peru", "🇻🇪 Venezuela",
+    "🇨🇮 Ivory Coast", "🇳🇬 Nigeria", "🇨🇲 Cameroon", "🇬🇭 Ghana"
+];
 
-        const groups = [
-            { name: "Group A", teams: [
-                { flag: "🇲🇽", name: "Mexico", p: 0, w: 0, d: 0, l: 0, gf: 0, ga: 0, gd: 0, pts: 0 },
-                { flag: "🇿🇦", name: "South Africa", p: 0, w: 0, d: 0, l: 0, gf: 0, ga: 0, gd: 0, pts: 0 },
-                { flag: "🇰🇷", name: "South Korea", p: 0, w: 0, d: 0, l: 0, gf: 0, ga: 0, gd: 0, pts: 0 },
-                { flag: "🇨🇿", name: "Czechia", p: 0, w: 0, d: 0, l: 0, gf: 0, ga: 0, gd: 0, pts: 0 }
-            ]},
-            { name: "Group B", teams: [
-                { flag: "🇨🇦", name: "Canada", p: 0, w: 0, d: 0, l: 0, gf: 0, ga: 0, gd: 0, pts: 0 },
-                { flag: "🇧🇦", name: "Bosnia", p: 0, w: 0, d: 0, l: 0, gf: 0, ga: 0, gd: 0, pts: 0 },
-                { flag: "🇶🇦", name: "Qatar", p: 0, w: 0, d: 0, l: 0, gf: 0, ga: 0, gd: 0, pts: 0 },
-                { flag: "🇨🇭", name: "Switzerland", p: 0, w: 0, d: 0, l: 0, gf: 0, ga: 0, gd: 0, pts: 0 }
-            ]},
-            { name: "Group C", teams: [
-                { flag: "🇧🇷", name: "Brazil", p: 0, w: 0, d: 0, l: 0, gf: 0, ga: 0, gd: 0, pts: 0 },
-                { flag: "🇪🇬", name: "Egypt", p: 0, w: 0, d: 0, l: 0, gf: 0, ga: 0, gd: 0, pts: 0 },
-                { flag: "🇳🇴", name: "Norway", p: 0, w: 0, d: 0, l: 0, gf: 0, ga: 0, gd: 0, pts: 0 },
-                { flag: "🇳🇿", name: "New Zealand", p: 0, w: 0, d: 0, l: 0, gf: 0, ga: 0, gd: 0, pts: 0 }
-            ]},
-            { name: "Group D", teams: [
-                { flag: "🇺🇸", name: "USA", p: 0, w: 0, d: 0, l: 0, gf: 0, ga: 0, gd: 0, pts: 0 },
-                { flag: "🇵🇾", name: "Paraguay", p: 0, w: 0, d: 0, l: 0, gf: 0, ga: 0, gd: 0, pts: 0 },
-                { flag: "🇦🇺", name: "Australia", p: 0, w: 0, d: 0, l: 0, gf: 0, ga: 0, gd: 0, pts: 0 },
-                { flag: "🇹🇷", name: "Turkey", p: 0, w: 0, d: 0, l: 0, gf: 0, ga: 0, gd: 0, pts: 0 }
-            ]},
-            { name: "Group E", teams: [
-                { flag: "🇦🇷", name: "Argentina", p: 0, w: 0, d: 0, l: 0, gf: 0, ga: 0, gd: 0, pts: 0 },
-                { flag: "🇲🇦", name: "Morocco", p: 0, w: 0, d: 0, l: 0, gf: 0, ga: 0, gd: 0, pts: 0 },
-                { flag: "🇦🇹", name: "Austria", p: 0, w: 0, d: 0, l: 0, gf: 0, ga: 0, gd: 0, pts: 0 },
-                { flag: "🇵🇦", name: "Panama", p: 0, w: 0, d: 0, l: 0, gf: 0, ga: 0, gd: 0, pts: 0 }
-            ]},
-            { name: "Group F", teams: [
-                { flag: "🇫🇷", name: "France", p: 0, w: 0, d: 0, l: 0, gf: 0, ga: 0, gd: 0, pts: 0 },
-                { flag: "🇸🇳", name: "Senegal", p: 0, w: 0, d: 0, l: 0, gf: 0, ga: 0, gd: 0, pts: 0 },
-                { flag: "🇸🇪", name: "Sweden", p: 0, w: 0, d: 0, l: 0, gf: 0, ga: 0, gd: 0, pts: 0 },
-                { flag: "🇭🇹", name: "Haiti", p: 0, w: 0, d: 0, l: 0, gf: 0, ga: 0, gd: 0, pts: 0 }
-            ]},
-            { name: "Group G", teams: [
-                { flag: "🏴󠁧󠁢󠁥󠁮󠁧󠁿", name: "England", p: 0, w: 0, d: 0, l: 0, gf: 0, ga: 0, gd: 0, pts: 0 },
-                { flag: "🇳🇱", name: "Netherlands", p: 0, w: 0, d: 0, l: 0, gf: 0, ga: 0, gd: 0, pts: 0 },
-                { flag: "🇺🇦", name: "Ukraine", p: 0, w: 0, d: 0, l: 0, gf: 0, ga: 0, gd: 0, pts: 0 },
-                { flag: "🇨🇱", name: "Chile", p: 0, w: 0, d: 0, l: 0, gf: 0, ga: 0, gd: 0, pts: 0 }
-            ]},
-            { name: "Group H", teams: [
-                { flag: "🇪🇸", name: "Spain", p: 0, w: 0, d: 0, l: 0, gf: 0, ga: 0, gd: 0, pts: 0 },
-                { flag: "🇩🇪", name: "Germany", p: 0, w: 0, d: 0, l: 0, gf: 0, ga: 0, gd: 0, pts: 0 },
-                { flag: "🇧🇪", name: "
+const groups = [
+    { name: "Group A", teams: [
+        { flag: "🇲🇽", name: "Mexico", p: 0, w: 0, d: 0, l: 0, gf: 0, ga: 0, gd: 0, pts: 0 },
+        { flag: "🇿🇦", name: "South Africa", p: 0, w: 0, d: 0, l: 0, gf: 0, ga: 0, gd: 0, pts: 0 },
+        { flag: "🇰🇷", name: "South Korea", p: 0, w: 0, d: 0, l: 0, gf: 0, ga: 0, gd: 0, pts: 0 },
+        { flag: "🇨🇿", name: "Czechia", p: 0, w: 0, d: 0, l: 0, gf: 0, ga: 0, gd: 0, pts: 0 }
+    ]},
+    { name: "Group B", teams: [
+        { flag: "🇨🇦", name: "Canada", p: 0, w: 0, d: 0, l: 0, gf: 0, ga: 0, gd: 0, pts: 0 },
+        { flag: "🇧🇦", name: "Bosnia", p: 0, w: 0, d: 0, l: 0, gf: 0, ga: 0, gd: 0, pts: 0 },
+        { flag: "🇶🇦", name: "Qatar", p: 0, w: 0, d: 0, l: 0, gf: 0, ga: 0, gd: 0, pts: 0 },
+        { flag: "🇨🇭", name: "Switzerland", p: 0, w: 0, d: 0, l: 0, gf: 0, ga: 0, gd: 0, pts: 0 }
+    ]},
+    { name: "Group C", teams: [
+        { flag: "🇧🇷", name: "Brazil", p: 0, w: 0, d: 0, l: 0, gf: 0, ga: 0, gd: 0, pts: 0 },
+        { flag: "🇪🇬", name: "Egypt", p: 0, w: 0, d: 0, l: 0, gf: 0, ga: 0, gd: 0, pts: 0 },
+        { flag: "🇳🇴", name: "Norway", p: 0, w: 0, d: 0, l: 0, gf: 0, ga: 0, gd: 0, pts: 0 },
+        { flag: "🇳🇿", name: "New Zealand", p: 0, w: 0, d: 0, l: 0, gf: 0, ga: 0, gd: 0, pts: 0 }
+    ]},
+    { name: "Group D", teams: [
+        { flag: "🇺🇸", name: "USA", p: 0, w: 0, d: 0, l: 0, gf: 0, ga: 0, gd: 0, pts: 0 },
+        { flag: "🇵🇾", name: "Paraguay", p: 0, w: 0, d: 0, l: 0, gf: 0, ga: 0, gd: 0, pts: 0 },
+        { flag: "🇦🇺", name: "Australia", p: 0, w: 0, d: 0, l: 0, gf: 0, ga: 0, gd: 0, pts: 0 },
+        { flag: "🇹🇷", name: "Turkey", p: 0, w: 0, d: 0, l: 0, gf: 0, ga: 0, gd: 0, pts: 0 }
+    ]},
+    { name: "Group E", teams: [
+        { flag: "🇦🇷", name: "Argentina", p: 0, w: 0, d: 0, l: 0, gf: 0, ga: 0, gd: 0, pts: 0 },
+        { flag: "🇲🇦", name: "Morocco", p: 0, w: 0, d: 0, l: 0, gf: 0, ga: 0, gd: 0, pts: 0 },
+        { flag: "🇦🇹", name: "Austria", p: 0, w: 0, d: 0, l: 0, gf: 0, ga: 0, gd: 0, pts: 0 },
+        { flag: "🇵🇦", name: "Panama", p: 0, w: 0, d: 0, l: 0, gf: 0, ga: 0, gd: 0, pts: 0 }
+    ]},
+    { name: "Group F", teams: [
+        { flag: "🇫🇷", name: "France", p: 0, w: 0, d: 0, l: 0, gf: 0, ga: 0, gd: 0, pts: 0 },
+        { flag: "🇸🇳", name: "Senegal", p: 0, w: 0, d: 0, l: 0, gf: 0, ga: 0, gd: 0, pts: 0 },
+        { flag: "🇸🇪", name: "Sweden", p: 0, w: 0, d: 0, l: 0, gf: 0, ga: 0, gd: 0, pts: 0 },
+        { flag: "🇭🇹", name: "Haiti", p: 0, w: 0, d: 0, l: 0, gf: 0, ga: 0, gd: 0, pts: 0 }
+    ]},
+    { name: "Group G", teams: [
+        { flag: "🏴󠁧󠁢󠁥󠁮󠁧󠁿", name: "England", p: 0, w: 0, d: 0, l: 0, gf: 0, ga: 0, gd: 0, pts: 0 },
+        { flag: "🇳🇱", name: "Netherlands", p: 0, w: 0, d: 0, l: 0, gf: 0, ga: 0, gd: 0, pts: 0 },
+        { flag: "🇺🇦", name: "Ukraine", p: 0, w: 0, d: 0, l: 0, gf: 0, ga: 0, gd: 0, pts: 0 },
+        { flag: "🇨🇱", name: "Chile", p: 0, w: 0, d: 0, l: 0, gf: 0, ga: 0, gd: 0, pts: 0 }
+    ]},
+    { name: "Group H", teams: [
+        { flag: "🇪🇸", name: "Spain", p: 0, w: 0, d: 0, l: 0, gf: 0, ga: 0, gd: 0, pts: 0 },
+        { flag: "🇩🇪", name: "Germany", p: 0, w: 0, d: 0, l: 0, gf: 0, ga: 0, gd: 0, pts: 0 },
+        { flag: "🇧🇪", name: "Belgium", p: 0, w: 0, d: 0, l: 0, gf: 0, ga: 0, gd: 0, pts: 0 },
+        { flag: "🇩🇰", name: "Denmark", p: 0, w: 0, d: 0, l: 0, gf: 0, ga: 0, gd: 0, pts: 0 }
+    ]},
+    { name: "Group I", teams: [
+        { flag: "🇵🇹", name: "Portugal", p: 0, w: 0, d: 0, l: 0, gf: 0, ga: 0, gd: 0, pts: 0 },
+        { flag: "🇮🇹", name: "Italy", p: 0, w: 0, d: 0, l: 0, gf: 0, ga: 0, gd: 0, pts: 0 },
+        { flag: "🇭🇷", name: "Croatia", p: 0, w: 0, d: 0, l: 0, gf: 0, ga: 0, gd: 0, pts: 0 },
+        { flag: "🇬🇷", name: "Greece", p: 0, w: 0, d: 0, l: 0, gf: 0, ga: 0, gd: 0, pts: 0 }
+    ]},
+    { name: "Group J", teams: [
+        { flag: "🇯🇵", name: "Japan", p: 0, w: 0, d: 0, l: 0, gf: 0, ga: 0, gd: 0, pts: 0 },
+        { flag: "🇮🇷", name: "Iran", p: 0, w: 0, d: 0, l: 0, gf: 0, ga: 0, gd: 0, pts: 0 },
+        { flag: "🇸🇦", name: "Saudi Arabia", p: 0, w: 0, d: 0, l: 0, gf: 0, ga: 0, gd: 0, pts: 0 },
+        { flag: "🇺🇿", name: "Uzbekistan", p: 0, w: 0, d: 0, l: 0, gf: 0, ga: 0, gd: 0, pts: 0 }
+    ]},
+    { name: "Group K", teams: [
+        { flag: "🇨🇴", name: "Colombia", p: 0, w: 0, d: 0, l: 0, gf: 0, ga: 0, gd: 0, pts: 0 },
+        { flag: "🇪🇨", name: "Ecuador", p: 0, w: 0, d: 0, l: 0, gf: 0, ga: 0, gd: 0, pts: 0 },
+        { flag: "🇵🇪", name: "Peru", p: 0, w: 0, d: 0, l: 0, gf: 0, ga: 0, gd: 0, pts: 0 },
+        { flag: "🇻🇪", name: "Venezuela", p: 0, w: 0, d: 0, l: 0, gf: 0, ga: 0, gd: 0, pts: 0 }
+    ]},
+    { name: "Group L", teams: [
+        { flag: "🇨🇮", name: "Ivory Coast", p: 0, w: 0, d: 0, l: 0, gf: 0, ga: 0, gd: 0, pts: 0 },
+        { flag: "🇳🇬", name: "Nigeria", p: 0, w: 0, d: 0, l: 0, gf: 0, ga: 0, gd: 0, pts: 0 },
+        { flag: "🇨🇲", name: "Cameroon", p: 0, w: 0, d: 0, l: 0, gf: 0, ga: 0, gd: 0, pts: 0 },
+        { flag: "🇬🇭", name: "Ghana", p: 0, w: 0, d: 0, l: 0, gf: 0, ga: 0, gd: 0, pts: 0 }
+    ]}
+];
+
+// ========== INITIALIZATION ==========
+document.addEventListener('DOMContentLoaded', function() {
+    initTicker();
+    initCityList();
+    initGroups();
+    initKnockout();
+    initCountdown();
+    initScrollEffects();
+    initNavbar();
+});
+
+// ========== FLAGS TICKER ==========
+function initTicker() {
+    const track = document.getElementById('ticker-track');
+    if (!track) return;
+    
+    let html = '';
+    // Double the teams for seamless loop
+    const doubled = [...allTeams, ...allTeams];
+    
+    doubled.forEach(team => {
+        const parts = team.split(' ');
+        const flag = parts[0];
+        const name = parts.slice(1).join(' ');
+        html += `
+            <div class="ticker-flag">
+                <div class="ticker-flag-circle">${flag}</div>
+                <span class="ticker-flag-name">${name}</span>
+            </div>
+        `;
+    });
+    
+    track.innerHTML = html;
+}
+
+// ========== INTERACTIVE MAP ==========
+function initCityList() {
+    const list = document.getElementById('city-list');
+    if (!list) return;
+    
+    let html = '';
+    cities.forEach((city, index) => {
+        html += `
+            <div class="city-list-item" onclick="selectCity(${index})">
+                <div class="city-list-flag">${city.country}</div>
+                <div class="city-list-info">
+                    <h4>${city.name}</h4>
+                    <p>${city.stadium}</p>
+                </div>
+            </div>
+        `;
+    });
+    
+    list.innerHTML = html;
+}
+
+function selectCity(index) {
+    const city = cities[index];
+    const items = document.querySelectorAll('.city-list-item');
+    items.forEach((item, i) => {
+        item.classList.toggle('active', i === index);
+    });
+    
+    // Update map iframe to show selected city
+    const frame = document.getElementById('city-map-frame');
+    const overlay = document.getElementById('map-overlay');
+    
+    if (frame) {
+        const query = encodeURIComponent(`${city.stadium}, ${city.name}`);
+        frame.src = `https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d5000!2d${city.lng}!3d${city.lat}!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zM0Aw!5e0!3m2!1sen!2sus!4v1715151600000!5m2!1sen!2sus`;
+    }
+    
+    if (overlay) {
+        overlay.innerHTML = `
+            <h4>${city.stadium}</h4>
+            <p>${city.name}<br>Capacity: ${city.capacity} • ${city.matches} Matches<br>${city.desc}</p>
+        `;
+    }
+}
+
+function exploreCity(country) {
+    const countryMap = {
+        'usa': 0,
+        'canada': 11,
+        'mexico': 13
+    };
+    const index = countryMap[country] || 0;
+    selectCity(index);
+    document.getElementById('map').scrollIntoView({ behavior: 'smooth' });
+}
+
+// ========== SCHEDULE TABS ==========
+function switchSchedule(type) {
+    const tabs = document.querySelectorAll('.schedule-tab');
+    tabs.forEach(tab => tab.classList.remove('active'));
+    event.target.classList.add('active');
+    
+    document.getElementById('live-matches').classList.add('hidden');
+    document.getElementById('upcoming-matches').classList.add('hidden');
+    document.getElementById('completed-matches').classList.add('hidden');
+    
+    document.getElementById(type + '-matches').classList.remove('hidden');
+}
+
+// ========== GROUP STAGE ==========
+function initGroups() {
+    const grid = document.getElementById('groups-grid');
+    if (!grid) return;
+    
+    let html = '';
+    groups.forEach((group, gIndex) => {
+        html += `
+            <div class="group-card" onclick="showGroupDetails(${gIndex})">
+                <div class="group-header">
+                    <h3>${group.name}</h3>
+                    <span class="group-status">Matchday 1</span>
+                </div>
+                <table class="group-table">
+                    <thead>
+                        <tr>
+                            <th>Team</th>
+                            <th>P</th>
+                            <th>W</th>
+                            <th>D</th>
+                            <th>L</th>
+                            <th>GD</th>
+                            <th>Pts</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        ${group.teams.map((team, tIndex) => `
+                            <tr class="${tIndex < 2 ? 'qualified' : tIndex === 2 ? 'playoff' : ''}">
+                                <td>
+                                    <div class="team-cell">
+                                        <div class="flag">${team.flag}</div>
+                                        <span class="name">${team.name}</span>
+                                    </div>
+                                </td>
+                                <td>${team.p}</td>
+                                <td>${team.w}</td>
+                                <td>${team.d}</td>
+                                <td>${team.l}</td>
+                                <td>${team.gd > 0 ? '+' + team.gd : team.gd}</td>
+                                <td class="pts-cell">${team.pts}</td>
+                            </tr>
+                        `).join('')}
+                    </tbody>
+                </table>
+            </div>
+        `;
+    });
+    
+    grid.innerHTML = html;
+}
+
+function showGroupDetails(index) {
+    const group = groups[index];
+    alert(`${group.name}\n\n` + group.teams.map(t => `${t.flag} ${t.name}`).join('\n') + '\n\nClick OK to view full fixtures (coming soon)');
+}
+
+// ========== TOURNAMENT PHASES ==========
+function showPhase(phase) {
+    const groupsSection = document.getElementById('groups');
+    const knockoutSection = document.getElementById('knockout');
+    const finalSection = document.getElementById('final');
+    
+    // Hide all
+    groupsSection.style.display = 'none';
+    knockoutSection.classList.remove('active');
+    finalSection.classList.remove('active');
+    
+    // Show selected
+    if (phase === 'groups') {
+        groupsSection.style.display = 'block';
+        groupsSection.scrollIntoView({ behavior: 'smooth' });
+    } else if (phase === 'knockout') {
+        knockoutSection.classList.add('active');
+        knockoutSection.scrollIntoView({ behavior: 'smooth' });
+    } else if (phase === 'final') {
+        finalSection.classList.add('active');
+        finalSection.scrollIntoView({ behavior: 'smooth' });
+    }
+    
+    // Update button styles
+    const buttons = document.querySelectorAll('button[onclick^="showPhase"]');
+    buttons.forEach(btn => {
+        if (btn.getAttribute('onclick').includes(phase)) {
+            btn.classList.remove('btn-outline');
+            btn.classList.add('btn-primary');
+        } else {
+            btn.classList.remove('btn-primary');
+            btn.classList.add('btn-outline');
+        }
+    });
+}
+
+// ========== KNOCKOUT BRACKET ==========
+function initKnockout() {
+    const bracket = document.getElementById('knockout-bracket');
+    if (!bracket) return;
+    
+    const rounds = [
+        { name: "Round of 32", matches: 16 },
+        { name: "Round of 16", matches: 8 },
+        { name: "Quarter Finals", matches: 4 },
+        { name: "Semi Finals", matches: 2 }
+    ];
+    
+    let html = '';
+    rounds.forEach(round => {
+        html += `
+            <div class="bracket-round">
+                <div class="bracket-round-title">${round.name}</div>
+                ${Array(round.matches).fill(0).map((_, i) => `
+                    <div class="bracket-match">
+                        <div class="bracket-team">
+                            <div class="bracket-team-info">
+                                <div class="bracket-team-flag">🏴</div>
+                                <span class="bracket-team-name">TBD</span>
+                            </div>
+                            <span class="bracket-score">-</span>
+                        </div>
+                        <div class="bracket-team">
+                            <div class="bracket-team-info">
+                                <div class="bracket-team-flag">🏴</div>
+                                <span class="bracket-team-name">TBD</span>
+                            </div>
+                            <span class="bracket-score">-</span>
+                        </div>
+                        <div class="bracket-date">TBD</div>
+                    </div>
+                `).join('')}
+            </div>
+        `;
+    });
+    
+    bracket.innerHTML = html;
+}
+
+// ========== COUNTDOWN TIMER ==========
+function initCountdown() {
+    updateCountdown();
+    setInterval(updateCountdown, 1000);
+}
+
+function updateCountdown() {
+    const kickoff = new Date('June 11, 2026 19:00:00').getTime();
+    const now = new Date().getTime();
+    const distance = kickoff - now;
+    
+    if (distance > 0) {
+        const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+        const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+        const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+        
+        const daysEl = document.getElementById('days');
+        const hoursEl = document.getElementById('hours');
+        const minutesEl = document.getElementById('minutes');
+        const secondsEl = document.getElementById('seconds');
+        
+        if (daysEl) daysEl.textContent = String(days).padStart(3, '0');
+        if (hoursEl) hoursEl.textContent = String(hours).padStart(2, '0');
+        if (minutesEl) minutesEl.textContent = String(minutes).padStart(2, '0');
+        if (secondsEl) secondsEl.textContent = String(seconds).padStart(2, '0');
+    }
+}
+
+// ========== SCROLL EFFECTS ==========
+function initScrollEffects() {
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+            }
+        });
+    }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+    
+    document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+}
+
+// ========== NAVBAR ==========
+function initNavbar() {
+    const navbar = document.getElementById('navbar');
+    if (!navbar) return;
+    
+    window.addEventListener('scroll', () => {
+        if (window.scrollY > 50) {
+            navbar.classList.add('scrolled');
+        } else {
+            navbar.classList.remove('scrolled');
+        }
+    });
+    
+    // Smooth scroll for nav links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function(e) {
+            e.preventDefault();
+            const target = document.querySelector(this.getAttribute('href'));
+            if (target) {
+                target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }
+        });
+    });
+}
+</script>
+</body>
+</html>
