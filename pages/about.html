@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us | Global Goal 2026</title>
+    <meta name="description" content="Learn about Global Goal 2026 - the independent fan community celebrating football across North America.">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700;800;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/style.css">
+    <style>
+        .page-header { padding-top: 8rem; padding-bottom: 2rem; text-align: center; }
+        .about-content { max-width: 900px; margin: 0 auto; }
+        .about-section { margin-bottom: 3rem; }
+        .about-section h2 { font-size: 1.8rem; margin-bottom: 1rem; }
+        .about-section p { color: rgba(255, 255, 255, 0.7); line-height: 1.8; margin-bottom: 1rem; }
+        .about-section ul { list-style: none; padding-left: 0; }
+        .about-section li { padding: 0.5rem 0; color: rgba(255, 255, 255, 0.7); display: flex; align-items: center; gap: 0.5rem; }
+        .about-section li::before { content: '✓'; color: var(--gg-green); font-weight: 700; }
+        .team-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem; margin-top: 2rem; }
+        .team-card { background: rgba(255, 255, 255, 0.02); border: 1px solid rgba(255, 255, 255, 0.05); border-radius: 16px; padding: 1.5rem; text-align: center; }
+        .team-avatar { width: 80px; height: 80px; border-radius: 50%; background: var(--gradient-primary); margin: 0 auto 1rem; display: flex; align-items: center; justify-content: center; font-size: 2rem; }
+        .team-name { font-weight: 700; margin-bottom: 0.3rem; }
+        .team-role { font-size: 0.85rem; color: rgba(255, 255, 255, 0.5); }
+        .values-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem; margin-top: 2rem; }
+        .value-card { background: rgba(255, 255, 255, 0.02); border: 1px solid rgba(255, 255, 255, 0.05); border-radius: 16px; padding: 2rem; text-align: center; }
+        .value-icon { font-size: 2.5rem; margin-bottom: 1rem; }
+        .value-title { font-weight: 700; margin-bottom: 0.5rem; }
+        .value-desc { font-size: 0.85rem; color: rgba(255, 255, 255, 0.5); }
+    </style>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-XXXXXXXXXXXXXXXX" crossorigin="anonymous"></script>
+</head>
+<body>
+
+    <nav id="navbar">
+        <div class="nav-container">
+            <a href="../index.html" class="logo"><div class="logo-icon">GG</div><span class="logo-text">GLOBAL GOAL</span></a>
+            <ul class="nav-links">
+                <li><a href="../index.html">Home</a></li>
+                <li><a href="earn-points.html">Earn Points</a></li>
+                <li><a href="leaderboard.html">Leaderboard</a></li>
+                <li><a href="prizes.html">Prizes</a></li>
+                <li><a href="highlights.html">Highlights</a></li>
+                <li><a href="referral.html">Refer & Earn</a></li>
+                <li><a href="about.html">About</a></li>
+            </ul>
+            <button class="mobile-menu-btn" onclick="toggleMobileMenu()">☰</button>
+        </div>
+    </nav>
+
+    <div class="page-header">
+        <span class="section-tag">Our Story</span>
+        <h1 class="section-title">About Global Goal 2026</h1>
+        <p class="section-desc">An independent fan community built by football lovers, for football lovers.</p>
+    </div>
+
+    <section style="padding-top: 0;">
+        <div class="about-content">
+            <div class="about-section">
+                <h2>Our Mission</h2>
+                <p>Global Goal 2026 was created to bring football fans together during the biggest summer of soccer in North American history. We're an independent, fan-operated platform that rewards engagement and celebrates the beautiful game.</p>
+                <p>We believe that being a fan should be fun, rewarding, and social. That's why we built a points system that lets you earn while you enjoy the content you already love.</p>
+            </div>
+
+            <div class="about-section">
+                <h2>What We Offer</h2>
+                <ul>
+                    <li>Curated match highlights and football content</li>
+                    <li>A rewarding points system for engagement</li>
+                    <li>Real prizes from PlayStation 5 to gift cards</li>
+                    <li>Live leaderboards to compete with fans worldwide</li>
+                    <li>Community discussions and fan interaction</li>
+                    <li>Completely free to join and participate</li>
+                </ul>
+            </div>
+
+            <!-- Ad -->
+            <div class="ad-container" style="margin: 3rem 0;">
+                <span class="ad-label">Advertisement</span>
+                <div class="ad-placeholder leaderboard">
+                    <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-XXXXXXXXXXXXXXXX" data-ad-slot="XXXXXXXXXX" data-ad-format="horizontal" data-full-width-responsive="true"></ins>
+                    <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+                </div>
+            </div>
+
+            <div class="about-section">
+                <h2>Our Values</h2>
+                <div class="values-grid">
+                    <div class="value-card">
+                        <div class="value-icon">⚽</div>
+                        <div class="value-title">Passion for the Game</div>
+                        <div class="value-desc">We live and breathe football. Every feature is designed with fans in mind.</div>
+                    </div>
+                    <div class="value-card">
+                        <div class="value-icon">🤝</div>
+                        <div class="value-title">Community First</div>
+                        <div class="value-desc">Fans come together here. Respect, inclusion, and fun are our priorities.</div>
+                    </div>
+                    <div class="value-card">
+                        <div class="value-icon">🎁</div>
+                        <div class="value-title">Real Rewards</div>
+                        <div class="value-desc">We deliver on our promises. Real prizes, real points, real winners.</div>
+                    </div>
+                    <div class="value-card">
+                        <div class="value-icon">🔒</div>
+                        <div class="value-title">Trust & Transparency</div>
+                        <div class="value-desc">Clear rules, fair play, and honest communication always.</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="about-section">
+                <h2>Important Disclaimer</h2>
+                <p style="background: rgba(239, 68, 68, 0.05); border: 1px solid rgba(239, 68, 68, 0.1); border-radius: 12px; padding: 1.5rem; color: rgba(255, 255, 255, 0.6);">
+                    <strong style="color: rgba(239, 68, 68, 0.8);">Legal Notice:</strong> Global Goal 2026 is an independent fan community and is NOT affiliated with, endorsed by, or sponsored by FIFA, the Fédération Internationale de Football Association, or the official FIFA World Cup 2026™ tournament. All references to the tournament, teams, and related events are for editorial, informational, and fan discussion purposes only. "FIFA World Cup" and related marks are trademarks of FIFA. Country flags are used for editorial identification purposes under fair use.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-brand"><span class="logo-text">GLOBAL GOAL 2026</span><p>Independent fan community. Not affiliated with FIFA.</p></div>
+            <div class="footer-links"><h4>Platform</h4><ul><li><a href="earn-points.html">Earn Points</a></li><li><a href="leaderboard.html">Leaderboard</a></li><li><a href="prizes.html">Prizes</a></li></ul></div>
+            <div class="footer-links"><h4>Legal</h4><ul><li><a href="terms.html">Terms</a></li><li><a href="privacy.html">Privacy</a></li><li><a href="contest-rules.html">Contest Rules</a></li></ul></div>
+        </div>
+        <div class="footer-bottom"><p>© 2026 Global Goal. All rights reserved. Not affiliated with FIFA.</p></div>
+    </footer>
+
+    <script src="../js/main.js"></script>
+</body>
+</html>
